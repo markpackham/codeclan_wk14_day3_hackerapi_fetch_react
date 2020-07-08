@@ -1,0 +1,34 @@
+No users inputing data into forms so all components can be stateless. All requests are Get rather than Post
+
+
+Url to get all our ids (ids can also be used as keys). 
+We need to limit the amount we're getting for performance reasons.
+https://hacker-news.firebaseio.com/v0/topstories.json
+Strucutre of typical piece of content, we get the id and place it after /item/
+https://hacker-news.firebaseio.com/v0/item/23767438.json
+
+
+Limited documentaiton
+https://hackernews.api-docs.io/v0/live-data/new-and-top-stories
+
+
+Use modal when selecting a story, have handlers in case it's a video or undesirable size
+
+
+Hierarchy
+/////
+App
+            NewsContainer
+                                NewsList
+                                NewsSelect
+                                                NewsDetail
+
+
+
+Containers:
+NewsContainer (holds all states)
+
+Components (get their props from NewsContainer):
+NewsList
+NewsSelect
+NewsDetail

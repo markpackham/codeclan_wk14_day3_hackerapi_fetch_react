@@ -38,7 +38,7 @@ class NewsContainer extends Component{
     render(){
         return(
             <div className="news-container">
-            <NewsList stories={}/>
+            <NewsList stories={this.state.stories}/>
             </div>
         )
     }

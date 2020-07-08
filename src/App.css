@@ -19,7 +19,7 @@ a:hover{
 }
 
 .news-container{
-
+  padding: 1rem;
 }
 
 .news-select{
@@ -31,7 +31,7 @@ a:hover{
 }
 
 .news-detail{
-  
+  padding: 1rem;
 }
 
 
