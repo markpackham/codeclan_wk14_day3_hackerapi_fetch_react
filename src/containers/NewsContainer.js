@@ -4,17 +4,49 @@ class NewsContainer extends Component{
 
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            stories: [],
+            selectedTitle: ""
+        };
     }
 
     componentDidMount(){
+        this.getStories()
+    }
+
+   
+
+    getStories(){
+
+        const urlId = `https://hacker-news.firebaseio.com/v0/topstories.json`
+        fetch(urlId)
+            .then(res => res.json())
+            .then(data => {
+                const promises = data.slice(0,10).map((storyId) => {
+                    return (
+                        fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)
+                            .then(res => res.json())
+                    )
+                })
+                Promise.resolve(promises)
+                .then(stories => this.setState({stories: stories}))
+        })
+         
+    }
+
+    handleSelectedTitle(title){
+        this.setSate({selectedTitle: title})
     }
 
     render(){
         return(
-            <h1>This is a test.</h1>
+            <div className="news-container">
+            <h1>Top Stories</h1>
+            </div>
         )
     }
 }
 
 export default NewsContainer;
+
+// https://hackernews.api-docs.io/v0/overview/uri-and-versioning
