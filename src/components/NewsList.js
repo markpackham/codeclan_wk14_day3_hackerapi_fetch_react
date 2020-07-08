@@ -30,12 +30,6 @@ class NewsList extends Component {
               <button onClick={this.modalAction} className="close-button">Close</button>
             </div>
 
-            // <div className={this.modalClass + " " + "modal"}>
-            //     <h3>Heading</h3>
-            //     <h4>Score: </h4>
-            //     <p>Type: </p>
-            //     <a href="#"></a>
-            // </div>
         )} else {
            return null
         }
