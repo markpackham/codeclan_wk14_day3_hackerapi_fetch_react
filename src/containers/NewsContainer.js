@@ -34,6 +34,7 @@ class NewsContainer extends Component{
             <div className="news-container">
                 <h1>Top Stories</h1>
             <NewsList stories={this.state.stories}/>
+            <div>Copyright {new Date().getFullYear()}</div>
             </div>
         )
     }
