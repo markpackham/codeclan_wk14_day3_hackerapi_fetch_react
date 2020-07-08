@@ -6,7 +6,8 @@ class NewsList extends Component {
     constructor(props){
         super(props)
         this.state = {
-            modal: false
+            modal: false,
+            selectedNews: ''
         }
         this.modalAction = this.modalAction.bind(this)
         this.modal= this.modal.bind(this)
@@ -15,29 +16,30 @@ class NewsList extends Component {
     modalAction(event){
         console.log(this.state.modal);
         this.setState({modal: !this.state.modal})
+        this.setState({selectedNews: event.target.value})
     }
-        
-    // modalClass = () => {
-    //     if (this.state.modal===false) return "show-modal"
-    //     if (this.state.modal===true) return "hide-modal"
-    // }
-
 
     modal() {
         if (this.state.modal) {
         return (
-            <div className={this.modalClass + " " + "modal"}>
-                <h3>Heading</h3>
-                <h4>Score: </h4>
-                <p>Type: </p>
-                <a href="#"></a>
-                <button onClick={this.modalAction} className="close-button">Close</button>
+            <div className="modal">
+              <NewsDetail 
+              stories={this.props.stories}
+              storyId={this.state.selectedNews}
+              />
+              <button onClick={this.modalAction} className="close-button">Close</button>
             </div>
+
+            // <div className={this.modalClass + " " + "modal"}>
+            //     <h3>Heading</h3>
+            //     <h4>Score: </h4>
+            //     <p>Type: </p>
+            //     <a href="#"></a>
+            // </div>
         )} else {
            return null
         }
     }
-
     
     render(){
        const newsStories = this.props.stories.map(story => {
@@ -45,8 +47,8 @@ class NewsList extends Component {
                 <div>
                     <div key={story.id}>
                         <ul className="news-card" >
-                            <li onClick={this.modalAction}>
-                                Title: {story.title}
+                            <li onClick={this.modalAction} value={story.id}>
+                                {story.title}
                             </li>
                             <li>
                                 Author: {story.by}
@@ -54,17 +56,11 @@ class NewsList extends Component {
                             <li>
                                 Score: {story.score}
                             </li>
-                            <a target="_blank" href={story.url}>link</a>
                         </ul>
                     </div>
-    
-                    
                 </div>
             )  
         })
-
-        
-        
 
         return(
             <div className="news-list">
