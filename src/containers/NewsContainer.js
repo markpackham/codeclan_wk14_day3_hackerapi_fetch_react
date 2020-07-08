@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewsList from '../components/NewsList';
-import NewsSelect from '../components/NewsSelect';
 
 class NewsContainer extends Component{
 
@@ -8,7 +7,6 @@ class NewsContainer extends Component{
         super(props);
         this.state = {
             stories: [],
-            selectedTitle: ""
         };
     }
 
@@ -29,10 +27,6 @@ class NewsContainer extends Component{
         Promise.resolve(promises)
          .then(stories => this.setState({stories: stories}))
        })
-    }
-
-    handleSelectedTitle(title){
-        this.setSate({selectedTitle: title})
     }
 
     render(){
