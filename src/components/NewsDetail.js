@@ -7,19 +7,21 @@ const NewsDetail = (props) => {
     const story = props.stories.find((story) => story.id === props.storyId)
     const url = story.url
 
-    console.log(story);
+    // console.log(story);
     
 
     const frame = (
         // <iframe src={url} frameborder="0"></iframe>
-        // <Iframe url={url}/>
-        null
+        <Iframe url={url}
+        width="450px"
+        height="450px"
+        />
+        // null
     )
     
     if(!props) return null
     return(
         <div>
-            <h3>Heading</h3>
             <h4>{story.title}</h4>
             {frame}
             {/* <Iframe src={props.stories.url} title="title"/>

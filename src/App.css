@@ -51,8 +51,8 @@ li:nth-child(1):hover{
 
 .modal {
   display: block;
-  width: 800px;
-  max-width: 100%;
+  width: 80vw;
+  /* max-width: 80vw%; */
   height: 400px;
   max-height: 100%;
   position: fixed;
