@@ -1,6 +1,7 @@
 import React from 'react';
+import NewsDetail from './NewsDetail';
 
-const NewsList = () => {
+const NewsList = (props) => {
 
     return(
         <div className="news-list">
