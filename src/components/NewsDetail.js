@@ -13,8 +13,8 @@ const NewsDetail = (props) => {
     const frame = (
         // <iframe src={url} frameborder="0"></iframe>
         <Iframe url={url}
-        width="450px"
-        height="450px"
+        width="550px"
+        height="550px"
         />
         // null
     )
