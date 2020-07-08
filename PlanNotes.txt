@@ -29,6 +29,11 @@ Containers:
 NewsContainer (holds all states)
 
 Components (get their props from NewsContainer):
-NewsList
-NewsSelect
-NewsDetail
+NewsList (show limited number of top news stories)
+NewsSelect (dropdown menu with titles, might need to substring if titles are too long)
+NewsDetail (present more detailed info on news story after selection)
+
+
+Substring something
+"Hello world!.substring(0, 8);
+gives "Hello wo"

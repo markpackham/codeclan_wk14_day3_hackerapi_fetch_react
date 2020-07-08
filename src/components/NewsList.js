@@ -5,7 +5,7 @@ const NewsList = (props) => {
 
     return(
         <div className="news-list">
-            
+
         </div>
     )
     
