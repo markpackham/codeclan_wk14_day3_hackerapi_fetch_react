@@ -1,30 +1,82 @@
-import React from 'react';
+import React, {Component} from 'react';
 import NewsDetail from './NewsDetail';
 
-const NewsList = (props) => {
-        const newsStories = props.stories.map(story => {
+class NewsList extends Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            modal: false
+        }
+        this.modalAction = this.modalAction.bind(this)
+        this.modal= this.modal.bind(this)
+    }
+
+    modalAction(event){
+        console.log(this.state.modal);
+        this.setState({modal: !this.state.modal})
+    }
+        
+    // modalClass = () => {
+    //     if (this.state.modal===false) return "show-modal"
+    //     if (this.state.modal===true) return "hide-modal"
+    // }
+
+
+    modal() {
+        if (this.state.modal) {
         return (
-            <div key={story.id} className="news-card">
+            <div className={this.modalClass + " " + "modal"}>
+                <h3>Heading</h3>
+                <h4>Score: </h4>
+                <p>Type: </p>
+                <a href="#"></a>
+                <button onClick={this.modalAction} className="close-button">Close</button>
+            </div>
+        )} else {
+           return null
+        }
+    }
+
+    
+    render(){
+       const newsStories = this.props.stories.map(story => {
+            return (
                 <div>
-                    Title: {story.title}
+                    <div key={story.id}>
+                        <ul className="news-card" >
+                            <li onClick={this.modalAction}>
+                                Title: {story.title}
+                            </li>
+                            <li>
+                                Author: {story.by}
+                            </li>
+                            <li>
+                                Score: {story.score}
+                            </li>
+                            <a target="_blank" href={story.url}>link</a>
+                        </ul>
+                    </div>
+    
+                    
                 </div>
-                <div>
-                    Author: {story.by}
-                </div>
-                <div>
-                    Score: {story.score}
-                </div>
-                <a target="_blank" href={story.url}>link</a>
+            )  
+        })
+
+        
+        
+
+        return(
+            <div className="news-list">
+                {newsStories}
+                {this.modal()}
             </div>
         )
-    })
+    }
 
-    return(
-        <div className="news-list">
-            {newsStories}
-        </div>
-    )
+    
     
 }
 
 export default NewsList;
+
